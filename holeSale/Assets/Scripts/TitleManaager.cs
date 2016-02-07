@@ -28,8 +28,8 @@ public class TitleManaager : MonoBehaviour {
     
     }
 
-    public static TitleManaager Load(string path)
+    /*public static TitleManaager Load(string path)
     {
-        
-    }
+        return;
+    }*/
 }

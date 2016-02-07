@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Gamemanager : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 	private float starttime;
-	private float titlewidth = 10f;
-	public Canvas screencanvas;
+    public GameObject[] Titles;
+    public GameObject test;
+	
+	
 	// Use this for initialization
 	void Start () {
 		starttime =Time.time;
@@ -15,15 +17,29 @@ public class Gamemanager : MonoBehaviour {
 		if(Time.time - starttime > 3)
 		{
 			//generate the game title prefab
-			GameObject temp = (GameObject)GameObject.Instantiate(Resources.Load("Prefab/gametitles"));
-			temp.transform.parent = screencanvas.transform;
+            GameObject temp = Instantiate(test);
+            temp.GetComponent<GameTitle>().Name = "Fallout";
+
+            SetSprite("Fallout", temp);
+//			temp.transform.parent = screencanvas.transform;
 
 			//starting postiont
 
-			float startposx = Random.Range(titlewidth, Screen.width - titlewidth);
-			Vector3 startpos = new Vector3 (startposx, Screen.height, 0);
+			float startposx = Random.Range(-280f,280f);
+			Vector3 startpos = new Vector3 (startposx, 160f, 0);
 			temp.transform.position = startpos;
 			starttime = Time.time;
 		}
 	}
+
+    void SetSprite(string name, GameObject go)
+    {
+        SpriteRenderer render;
+        render = go.GetComponent<SpriteRenderer>();
+        if (name == "Fallout")
+        {
+            render.sprite = Resources.Load<Sprite>("2D Assets/Titles 1_0");
+        }
+
+    }
 }
