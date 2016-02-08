@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour {
         render = go.GetComponent<SpriteRenderer>();
         if (name == "Fallout")
         {
-            render.sprite = Resources.Load<Sprite>("2D Assets/Titles 1_0");
+            Sprite[] icons = Resources.LoadAll<Sprite>("2D Assets/Titles 1");
+            render.sprite = icons[0];
         }
 
     }
