@@ -1,9 +1,21 @@
 fileFormatVersion: 2
 guid: 793c0fb9a3e218a40b38cc4e53ad44e1
-timeCreated: 1454880529
-licenseType: Pro
+timeCreated: 1454979494
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Character_EyesCl_Side
+    21300002: Character_Face_Fr
+    21300004: Character_Face_Side
+    21300006: Character_Hand_L_F
+    21300008: Character_Body_Front
+    21300010: Character_Hand_R_B
+    21300012: Character_Body_Side
+    21300014: Character_Foot_L_F
+    21300016: Character_Foot_R_B
+    21300018: Character_EyesOpen_Side
+    21300020: Character_EyesOpen_Front
+    21300022: Character_EyesCl_Front
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +42,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +50,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +61,232 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Character_EyesCl_Side
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 672
+        width: 65
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Character_Face_Fr
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 452
+        width: 232
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: 84.5}
+        - {x: 28, y: 80.5}
+        - {x: 21, y: 50.5}
+        - {x: -27, y: 62.5}
+        - {x: -39, y: 84.5}
+        - {x: -61, y: 84.5}
+        - {x: -77, y: 74.5}
+        - {x: -116, y: 48.5}
+        - {x: -116, y: -82.5}
+        - {x: -110, y: -84.5}
+        - {x: 108, y: -84.5}
+        - {x: 116, y: -71.5}
+        - {x: 116, y: 41.5}
+        - {x: 77, y: 84.5}
+    - name: Character_Face_Side
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 422
+        width: 264
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 132, y: 49.5}
+        - {x: 127, y: 59.5}
+        - {x: 66, y: 93.5}
+        - {x: 52, y: 94.5}
+        - {x: 14, y: 73.5}
+        - {x: -20, y: 107.5}
+        - {x: -38, y: 107.5}
+        - {x: -47, y: 102.5}
+        - {x: -87, y: 61.5}
+        - {x: -130, y: 42.5}
+        - {x: -132, y: 39.5}
+        - {x: -132, y: -78.5}
+        - {x: -122, y: -87.5}
+        - {x: -60, y: -107.5}
+        - {x: -3, y: -107.5}
+        - {x: 59, y: -97.5}
+        - {x: 122, y: -82.5}
+        - {x: 132, y: -75.5}
+    - name: Character_Hand_L_F
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 334
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 25.5}
+        - {x: -28, y: 18.5}
+        - {x: -28, y: -23.5}
+        - {x: -24, y: -25.5}
+        - {x: 24, y: -25.5}
+        - {x: 28, y: -20.5}
+        - {x: 28, y: 23.5}
+        - {x: 22, y: 25.5}
+    - name: Character_Body_Front
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 136
+        width: 189
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 71.5, y: 62.5}
+        - {x: 49.5, y: 110.5}
+        - {x: 21.5, y: 141.5}
+        - {x: -31.5, y: 141.5}
+        - {x: -65.5, y: 86.5}
+        - {x: -82.5, y: 51.5}
+        - {x: -94.5, y: 9.5}
+        - {x: -94.5, y: -78.5}
+        - {x: -85.5, y: -104.5}
+        - {x: -67.5, y: -126.5}
+        - {x: -27.5, y: -141.5}
+        - {x: 39.5, y: -141.5}
+        - {x: 58.5, y: -135.5}
+        - {x: 94.5, y: -94.5}
+        - {x: 94.5, y: -2.5}
+    - name: Character_Hand_R_B
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 329
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 26.5}
+        - {x: -27.5, y: 23.5}
+        - {x: -27.5, y: -26.5}
+        - {x: 25.5, y: -26.5}
+        - {x: 27.5, y: -21.5}
+        - {x: 27.5, y: 16.5}
+        - {x: 19.5, y: 26.5}
+    - name: Character_Body_Side
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 124
+        width: 207
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 95.5, y: 31.5}
+        - {x: 53.5, y: 122.5}
+        - {x: 22.5, y: 141.5}
+        - {x: -25.5, y: 141.5}
+        - {x: -49.5, y: 117.5}
+        - {x: -59.5, y: 100.5}
+        - {x: -73.5, y: 76.5}
+        - {x: -92.5, y: 39.5}
+        - {x: -103.5, y: 10.5}
+        - {x: -103.5, y: -83.5}
+        - {x: -101.5, y: -91.5}
+        - {x: -73.5, y: -124.5}
+        - {x: -42.5, y: -141.5}
+        - {x: 57.5, y: -141.5}
+        - {x: 80.5, y: -125.5}
+        - {x: 103.5, y: -88.5}
+        - {x: 103.5, y: -11.5}
+    - name: Character_Foot_L_F
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 19
+        width: 82
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 26}
+        - {x: -41, y: 12}
+        - {x: -41, y: -26}
+        - {x: 37, y: -26}
+        - {x: 41, y: -22}
+        - {x: 41, y: 12}
+        - {x: 26, y: 26}
+    - name: Character_Foot_R_B
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 18
+        width: 83
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 26}
+        - {x: -41.5, y: 19}
+        - {x: -41.5, y: -26}
+        - {x: 37.5, y: -26}
+        - {x: 41.5, y: -18}
+        - {x: 41.5, y: 22}
+        - {x: 38.5, y: 26}
+    - name: Character_EyesOpen_Side
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 719
+        width: 68
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Character_EyesOpen_Front
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 718
+        width: 96
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Character_EyesCl_Front
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 666
+        width: 101
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
