@@ -3,12 +3,12 @@ using System.Collections;
 
 public class GameTitle : MonoBehaviour {
 	public float speed = 10f;
-	private Vector3 movedir = new Vector3(0, -1, 0);
+	//private Vector3 movedir = new Vector3(0, -1, 0);
     public string Name;
     public float Price;
     public float Discount;
     private SpriteRenderer render;
-
+    public GameObject playerparent;
     void Awake()
     {
         //render = GetComponent<SpriteRenderer>();
@@ -24,18 +24,35 @@ public class GameTitle : MonoBehaviour {
 
  
 	}
-    void OnCollision2D(Collider2D coll)
-    {
-        Debug.Log("hit");
-    }
+    //colliding gameObjects
     void OnCollisionEnter2D(Collision2D coll)
     {
-        Debug.Log("hit2");
-        gameObject.transform.parent = coll.gameObject.transform;
+        //Debug.Log("hit2");
+        if (coll.gameObject.tag == "Player" && (coll.gameObject.transform.position.y +10) < gameObject.transform.position.y )
+        {
+            //need to check x positin before combining
+            if (coll.gameObject.transform.position.x + 40 > gameObject.transform.position.x && coll.gameObject.transform.position.x - 40 < gameObject.transform.position.x)
+            {
+                gameObject.transform.parent = coll.gameObject.transform;
+                gameObject.tag = "Player";
+                coll.gameObject.tag = "Untagged";
+                Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
+                body.constraints = RigidbodyConstraints2D.FreezePositionY;
+            }
+            else
+            {
+                Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+            }
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+        }
+        
     }
 	// Update is called once per frame
 	void Update () {
-		transform.position += movedir * speed * Time.deltaTime;
+		//transform.position += movedir * speed * Time.deltaTime;
 		if(transform.position.y < -170)
 		{
 			Destroy(gameObject);

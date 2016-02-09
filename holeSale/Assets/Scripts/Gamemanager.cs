@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Time.time - starttime > 3)
+		if(Time.time - starttime > 3f)
 		{
 			//generate the game title prefab
             GameObject temp = Instantiate(test);
