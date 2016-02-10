@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class Player : MonoBehaviour {
 	public float speed = 50;
+    public List<GameObject> CurrentTitles = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
 	
