@@ -42,7 +42,7 @@ public class Player : MonoBehaviour {
                 temp.GetComponent<GameTitle>().Countdown = false;
                 temp.position = new Vector3(temp.position.x, temp.position.y + 15);
                 temp.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-               temp.tag = "Dropped";
+                temp.tag = "Dropped";
 
             }
         }
