@@ -33,4 +33,18 @@ public class Player : MonoBehaviour {
         //    transform.position += testmove;
         //}
     }
+   public void UnfreezeTitles() {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform temp = transform.GetChild(i);
+            if (temp.name == "Title(Clone)" && temp.transform.position.y > gameObject.transform.position.y){
+
+                temp.GetComponent<GameTitle>().Countdown = false;
+                temp.position = new Vector3(temp.position.x, temp.position.y + 15);
+                temp.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+               temp.tag = "Dropped";
+
+            }
+        }
+    }
 }
