@@ -3,8 +3,9 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	private float starttime;
-    public GameObject[] Titles;
+    //public GameObject[] Titles;
     public GameObject test;
+    public string[] Titles;
 	
 	
 	// Use this for initialization
@@ -18,9 +19,8 @@ public class GameManager : MonoBehaviour {
 		{
 			//generate the game title prefab
             GameObject temp = Instantiate(test);
-            temp.GetComponent<GameTitle>().Name = "Fallout";
 
-            SetSprite("Fallout", temp);
+            SetSprite(Titles[Random.Range(0,Titles.Length)], temp);
 //			temp.transform.parent = screencanvas.transform;
 
 			//starting postiont
@@ -35,12 +35,20 @@ public class GameManager : MonoBehaviour {
     void SetSprite(string name, GameObject go)
     {
         SpriteRenderer render;
+        Sprite[] icons = Resources.LoadAll<Sprite>("2D Assets/Titles 1");
+
         render = go.GetComponent<SpriteRenderer>();
-        if (name == "Fallout")
+        if (name.ToLower() == "fallout")
         {
-            Sprite[] icons = Resources.LoadAll<Sprite>("2D Assets/Titles 1");
             render.sprite = icons[0];
         }
-
+        if (name.ToLower() == "farcry")
+        {
+            render.sprite = icons[1];
+        }
+        if (name.ToLower() == "octodad")
+        {
+            render.sprite = icons[2];
+        }
     }
 }
