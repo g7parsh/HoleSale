@@ -8,7 +8,6 @@ public class GameTitle : MonoBehaviour {
     public float Price;
     public float Discount;
     private SpriteRenderer render;
-    public GameObject playerparent;
     void Awake()
     {
         //render = GetComponent<SpriteRenderer>();
@@ -19,11 +18,6 @@ public class GameTitle : MonoBehaviour {
         BoxCollider2D collision = gameObject.GetComponent<BoxCollider2D>();
         collision.size = new Vector2(5.3f, 1.59f);
     }
-    // Use this for initialization
-    void Start () {
-
- 
-	}
     //colliding gameObjects
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -37,10 +31,12 @@ public class GameTitle : MonoBehaviour {
                 gameObject.tag = "Player";
                 coll.gameObject.tag = "Untagged";
                 Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
-                body.constraints = RigidbodyConstraints2D.FreezePositionY;
+                body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                GetToPlayer();
             }
             else
             {
+                Debug.Log("Failed the x pos check");
                 Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
             }
         }
@@ -58,4 +54,13 @@ public class GameTitle : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
+    void GetToPlayer()
+    {
+        Transform temp = gameObject.transform;
+        while (temp.transform.parent != null)
+        {
+            temp = temp.transform.parent;
+        }
+        temp.GetComponent<Player>().CurrentTitles.Add(gameObject);
+    }
 }
