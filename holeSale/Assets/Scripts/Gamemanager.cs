@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 			//starting postiont
 
 			float startposx = Random.Range(-280f,280f);
-			Vector3 startpos = new Vector3 (startposx, 160f, -5);
+			Vector3 startpos = new Vector3 (startposx, 160f, -3);
 			temp.transform.position = startpos;
 			starttime = Time.time;
 		}

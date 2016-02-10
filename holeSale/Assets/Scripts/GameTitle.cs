@@ -7,6 +7,9 @@ public class GameTitle : MonoBehaviour {
     public string Name;
     public float Price;
     public float Discount;
+    public float TimeNeeded;
+    public bool Countdown = false;
+    private GameObject PlayerBase;
     private SpriteRenderer render;
     void Awake()
     {
@@ -22,7 +25,7 @@ public class GameTitle : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         //Debug.Log("hit2");
-        if (coll.gameObject.tag == "Player" && (coll.gameObject.transform.position.y +10) < gameObject.transform.position.y )
+        if ((coll.gameObject.tag == "Player" || coll.gameObject.tag == "Dropped") && (coll.gameObject.transform.position.y + 15) < gameObject.transform.position.y)
         {
             //need to check x positin before combining
             if (coll.gameObject.transform.position.x + 40 > gameObject.transform.position.x && coll.gameObject.transform.position.x - 40 < gameObject.transform.position.x)
@@ -53,14 +56,27 @@ public class GameTitle : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
+        if (Countdown) {
+            TimeNeeded -= Time.deltaTime;
+            if (TimeNeeded <= 0)
+            {
+                PlayerBase.tag = "Player";
+                PlayerBase.GetComponent<Player>().UnfreezeTitles();
+                Destroy(gameObject);
+            }
+        }
+
 	}
     void GetToPlayer()
     {
+        Countdown = true;
         Transform temp = gameObject.transform;
         while (temp.transform.parent != null)
         {
             temp = temp.transform.parent;
         }
         temp.GetComponent<Player>().CurrentTitles.Add(gameObject);
+        PlayerBase = temp.gameObject;
+        gameObject.transform.parent = PlayerBase.transform;
     }
 }
