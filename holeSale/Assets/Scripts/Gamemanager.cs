@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
     //public GameObject[] Titles;
     public GameObject test;
     public string[] Titles;
-	
+	float[] discounts = {.25f,.50f,.75f,.90f};
 	
 	// Use this for initialization
 	void Start () {
@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour {
 		{
 			//generate the game title prefab
             GameObject temp = Instantiate(test);
-
+            GameTitle tempObj = temp.GetComponent<GameTitle>();
             SetSprite(Titles[Random.Range(0,Titles.Length)], temp);
+            tempObj.Discount = discounts[Random.Range(0, discounts.Length)];
+            
 //			temp.transform.parent = screencanvas.transform;
 
 			//starting postiont

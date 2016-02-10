@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameTitle : MonoBehaviour {
 	public float speed = 10f;
+
 	//private Vector3 movedir = new Vector3(0, -1, 0);
+    public Text AmtInWallet;
+
     public string Name;
     public float Price;
     public float Discount;
@@ -11,14 +15,18 @@ public class GameTitle : MonoBehaviour {
     public bool Countdown = false;
     private GameObject PlayerBase;
     private SpriteRenderer render;
+    private TextMesh DiscountMesh;
     void Awake()
     {
+        DiscountMesh = GetComponentInChildren<TextMesh>();
+        AmtInWallet = GameObject.FindGameObjectWithTag("Wallet").GetComponentInChildren<Text>();
         //render = GetComponent<SpriteRenderer>();
         //if (Name == "Fallout")
         //{
         //    render.sprite = Resources.Load<Sprite>("2D Assets/Titles 1_0");
         //}
         BoxCollider2D collision = gameObject.GetComponent<BoxCollider2D>();
+        setDiscountTag();
         collision.size = new Vector2(5.3f, 1.59f);
     }
     //colliding gameObjects
@@ -30,11 +38,13 @@ public class GameTitle : MonoBehaviour {
             //need to check x positin before combining
             if (coll.gameObject.transform.position.x + 40 > gameObject.transform.position.x && coll.gameObject.transform.position.x - 40 < gameObject.transform.position.x)
             {
+                
                 gameObject.transform.parent = coll.gameObject.transform;
                 gameObject.tag = "Player";
                 coll.gameObject.tag = "Untagged";
                 Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
                 body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) - Price * (1 - Discount)).ToString("#.00");
                 GetToPlayer();
             }
             else
@@ -67,6 +77,9 @@ public class GameTitle : MonoBehaviour {
         }
 
 	}
+    void setDiscountTag() {
+        DiscountMesh.text = Discount.ToString() + "%"; 
+    }
     void GetToPlayer()
     {
         Countdown = true;
