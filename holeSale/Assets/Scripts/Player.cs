@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public class Player : MonoBehaviour {
 	public float speed = 50;
+    public bool collect = true;
     public List<GameObject> CurrentTitles = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
@@ -34,17 +35,25 @@ public class Player : MonoBehaviour {
         //}
     }
    public void UnfreezeTitles() {
-        for (int i = 0; i < transform.childCount; i++)
+        //remove the top title cause its gone
+        CurrentTitles.RemoveAt(0);
+        foreach(GameObject g in CurrentTitles)
         {
-            Transform temp = transform.GetChild(i);
-            if (temp.name == "Title(Clone)" && temp.transform.position.y > gameObject.transform.position.y){
-
-                temp.GetComponent<GameTitle>().Countdown = false;
-                temp.position = new Vector3(temp.position.x, temp.position.y + 15);
-                temp.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-                temp.tag = "Dropped";
-
-            }
+            g.tag = "Dropped";
+            g.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+        //for (int i = 0; i < transform.childCount; i++)
+        //{
+        //    Transform temp = transform.GetChild(i);
+        //    if (temp.name == "Title(Clone)" && temp.transform.position.y > gameObject.transform.position.y){
+
+        //        temp.GetComponent<GameTitle>().Countdown = false;
+        //        //not work because all of them are are being shifted
+        //        temp.position = new Vector3(temp.position.x, temp.position.y + 20);
+        //        temp.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        //        temp.tag = "Dropped";
+
+        //    }
+        //}
     }
 }

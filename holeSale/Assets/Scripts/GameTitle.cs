@@ -24,31 +24,53 @@ public class GameTitle : MonoBehaviour {
     //colliding gameObjects
     void OnCollisionEnter2D(Collision2D coll)
     {
+        
         //Debug.Log("hit2");
-        if (coll.gameObject.tag == "Player"  && (coll.gameObject.transform.position.y + 15) < gameObject.transform.position.y)
+        if (coll.gameObject.tag == "Player" && gameObject.tag == "Dropped")
         {
-            //need to check x positin before combining
-            if (coll.gameObject.transform.position.x + 40 > gameObject.transform.position.x && coll.gameObject.transform.position.x - 40 < gameObject.transform.position.x)
-            {
-                gameObject.transform.parent = coll.gameObject.transform;
-                gameObject.tag = "Player";
-                coll.gameObject.tag = "Untagged";
-                Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
-                body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-                GetToPlayer();
-            }
-            else
-            {
-                Debug.Log("Failed the x pos check");
-                Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
-            }
+            //falling piece
+            SetLast();
+            PlayerBase.gameObject.tag = "Untagged";
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
         else
         {
-            Debug.Log("failed the y position");
+            //Debug.Log("failed the y position");
             Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
         }
-        
+        //don't pick up titles if there are dropped pieces falling
+        GameObject[] dropping = GameObject.FindGameObjectsWithTag("Dropped");
+        if (dropping.Length == 0)
+        {
+            if (coll.gameObject.tag == "Player" && (coll.gameObject.transform.position.y + 15) < gameObject.transform.position.y)
+            {
+                //need to check x positin before combining
+                if (coll.gameObject.transform.position.x + 40 > gameObject.transform.position.x && coll.gameObject.transform.position.x - 40 < gameObject.transform.position.x)
+                {
+                    gameObject.transform.parent = coll.gameObject.transform;
+                    gameObject.tag = "Player";
+                    coll.gameObject.tag = "Untagged";
+                    Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
+                    body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                    GetToPlayer();
+                }
+                else
+                {
+                    Debug.Log("Failed the x pos check");
+                    Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+                }
+            }
+            //else if (coll.gameObject.tag == "Dropped" && gameObject.tag == "Dropped")
+            //{
+            //    gameObject.transform.parent = coll.gameObject.transform;
+            //    Debug.Log("dropped tag");
+            //}
+            else
+            {
+                //Debug.Log("failed the y position");
+                Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+            }
+        }
     }
 	// Update is called once per frame
 	void Update () {
@@ -63,6 +85,9 @@ public class GameTitle : MonoBehaviour {
             {
                 PlayerBase.tag = "Player";
                 PlayerBase.GetComponent<Player>().UnfreezeTitles();
+                //take out the child
+                GameObject temp = gameObject.transform.Find("Title(Clone)").gameObject;
+                temp.transform.parent = gameObject.transform.parent;
                 Destroy(gameObject);
             }
         }
@@ -78,6 +103,24 @@ public class GameTitle : MonoBehaviour {
         }
         temp.GetComponent<Player>().CurrentTitles.Add(gameObject);
         PlayerBase = temp.gameObject;
-        gameObject.transform.parent = PlayerBase.transform;
+        //gameObject.transform.parent = PlayerBase.transform;
+    }
+    void SetLast()
+    {
+        if (gameObject.transform.childCount == 1)
+        {
+            gameObject.tag = "Player";
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            return;
+        }
+        GameObject temp = gameObject.transform.Find("Title(Clone)").gameObject;
+        while (temp.transform.childCount > 1)
+        {
+            temp.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            temp.tag = "Untagged";
+            temp = temp.transform.Find("Title(Clone)").gameObject;
+        }
+        temp.gameObject.tag = "Player";
+        temp.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
     }
 }
