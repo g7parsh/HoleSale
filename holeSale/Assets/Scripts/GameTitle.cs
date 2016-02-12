@@ -14,7 +14,7 @@ public class GameTitle : MonoBehaviour {
     public float TimeNeeded;
     public bool Countdown = false;
     private GameObject PlayerBase;
-    private SpriteRenderer render;
+    //private SpriteRenderer render;
     private TextMesh DiscountMesh;
     void Awake()
     {
@@ -103,8 +103,11 @@ public class GameTitle : MonoBehaviour {
         }
 
 	}
-    void setDiscountTag() {
-        DiscountMesh.text = Discount.ToString() + "%"; 
+    public void setDiscountTag()
+    {
+        //turn it into whole number for output
+        float discounttemp = Discount * 100f;
+        DiscountMesh.text = discounttemp.ToString() + "%"; 
     }
     void GetToPlayer()
     {

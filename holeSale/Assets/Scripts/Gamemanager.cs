@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
             GameTitle tempObj = temp.GetComponent<GameTitle>();
             SetSprite(Titles[Random.Range(0,Titles.Length)], temp);
             tempObj.Discount = discounts[Random.Range(0, discounts.Length)];
-            
+            tempObj.setDiscountTag();
 //			temp.transform.parent = screencanvas.transform;
 
 			//starting postiont
