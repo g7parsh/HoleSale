@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	private float starttime;
+    private float MoneyStartTime;
+    private float BillStartTime;
     //public GameObject[] Titles;
     public GameObject test;
     public string[] Titles;
@@ -11,6 +13,8 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		starttime =Time.time;
+        MoneyStartTime = Time.time;
+        BillStartTime = Time.time;
 	}
 	
 	// Update is called once per frame
@@ -26,13 +30,33 @@ public class GameManager : MonoBehaviour {
 //			temp.transform.parent = screencanvas.transform;
 
 			//starting postiont
-
 			float startposx = Random.Range(-280f,280f);
 			Vector3 startpos = new Vector3 (startposx, 160f, -3);
 			temp.transform.position = startpos;
 			starttime = Time.time;
 		}
-	}
+        //different starting time for the Money drops
+        if (Time.time - MoneyStartTime > 20f)
+        {
+            GameObject temp = (GameObject)Instantiate(Resources.Load("Prefabs/Money"));
+            //starting postiont
+            float startposx = Random.Range(-280f, 280f);
+            Vector3 startpos = new Vector3(startposx, 160f, -3);
+            temp.transform.position = startpos;
+            
+            MoneyStartTime = Time.time;
+        }
+        if (Time.time - BillStartTime > 10f)
+        {
+            GameObject temp = (GameObject)Instantiate(Resources.Load("Prefabs/Bill"));
+            //starting postiont
+            float startposx = Random.Range(-280f, 280f);
+            Vector3 startpos = new Vector3(startposx, 160f, -3);
+            temp.transform.position = startpos;
+
+            BillStartTime = Time.time;
+        }
+    }
 
     void SetSprite(string name, GameObject go)
     {

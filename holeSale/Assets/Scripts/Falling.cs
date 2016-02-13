@@ -1,35 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class GameTitle : MonoBehaviour {
-	public float speed = 10f;
+public class Falling : MonoBehaviour {
 
-	//private Vector3 movedir = new Vector3(0, -1, 0);
-    public Text AmtInWallet;
-    public Text TimePlayed;
-    public string Name;
-    public float Price;
-    public float Discount;
-    public float TimeNeeded;
+
+    //private Vector3 movedir = new Vector3(0, -1, 0);
+
+    //public string Name;
+    //public float Price;
+    //public float Discount;
+    //public float TimeNeeded;
     public bool Countdown = false;
-    private GameObject PlayerBase;
+    public GameObject PlayerBase;
     //private SpriteRenderer render;
-    private TextMesh DiscountMesh;
-    private float previoustime;
+    //private TextMesh DiscountMesh;
+    //private float previoustime;
     void Awake()
     {
-        DiscountMesh = GetComponentInChildren<TextMesh>();
-        AmtInWallet = GameObject.FindGameObjectWithTag("Wallet").GetComponentInChildren<Text>();
-        TimePlayed = GameObject.FindGameObjectWithTag("TimePlayed").GetComponent<Text>();
         //render = GetComponent<SpriteRenderer>();
         //if (Name == "Fallout")
         //{
         //    render.sprite = Resources.Load<Sprite>("2D Assets/Titles 1_0");
         //}
-        BoxCollider2D collision = gameObject.GetComponent<BoxCollider2D>();
-        setDiscountTag();
-        collision.size = new Vector2(5.3f, 1.59f);
+        //BoxCollider2D collision = gameObject.GetComponent<BoxCollider2D>();
+        //collision.size = new Vector2(5.3f, 1.59f);
     }
     //colliding gameObjects
     void OnCollisionEnter2D(Collision2D coll)
@@ -62,9 +56,7 @@ public class GameTitle : MonoBehaviour {
                     coll.gameObject.tag = "Untagged";
                     Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
                     body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-                    AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) - Price * (1 - Discount)).ToString("#.00");
-                    TimePlayed.text = "" +( (float.Parse(TimePlayed.text)) + TimeNeeded);
-                    previoustime = TimeNeeded;
+                    //previoustime = TimeNeeded;
                     GetToPlayer();
                 }
                 else
@@ -86,44 +78,46 @@ public class GameTitle : MonoBehaviour {
         }
 
     }
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         //transform.position += movedir * speed * Time.deltaTime;
         if (transform.position.y < -170)
         {
             Destroy(gameObject);
         }
-        if (Countdown) {
-            //check if 1 second has passed
-           
-            TimeNeeded -= Time.deltaTime;
-            if (TimeNeeded < previoustime - 1)
-            {
-                //don't  go into negatives
-                if (float.Parse(TimePlayed.text) > 0)
-                {
-                    TimePlayed.text = "" + ((float.Parse(TimePlayed.text)) - 1);
-                }
-                previoustime = TimeNeeded;
-            }
-            if (TimeNeeded <= 0)
-            {
-                PlayerBase.tag = "Player";
-                PlayerBase.GetComponent<Player>().UnfreezeTitles();
-                //take out child
-                GameObject temp = gameObject.transform.Find("Title(Clone)").gameObject;
-                temp.transform.parent = gameObject.transform.parent;
-                Destroy(gameObject);
-            }
-        }
+        //if (Countdown)
+        //{
+        //    //check if 1 second has passed
 
-	}
-    public void setDiscountTag()
-    {
-        //turn it into whole number for output
-        float discounttemp = Discount * 100f;
-        DiscountMesh.text = discounttemp.ToString() + "%"; 
+        //    TimeNeeded -= Time.deltaTime;
+        //    if (TimeNeeded < previoustime - 1)
+        //    {
+        //        //don't  go into negatives
+        //        if (float.Parse(TimePlayed.text) > 0)
+        //        {
+        //            TimePlayed.text = "" + ((float.Parse(TimePlayed.text)) - 1);
+        //        }
+        //        previoustime = TimeNeeded;
+        //    }
+        //    if (TimeNeeded <= 0)
+        //    {
+        //        PlayerBase.tag = "Player";
+        //        PlayerBase.GetComponent<Player>().UnfreezeTitles();
+        //        //take out child
+        //        GameObject temp = gameObject.transform.Find("Title(Clone)").gameObject;
+        //        temp.transform.parent = gameObject.transform.parent;
+        //        Destroy(gameObject);
+        //    }
+        //}
+
     }
+    //public void setDiscountTag()
+    //{
+    //    //turn it into whole number for output
+    //    float discounttemp = Discount * 100f;
+    //    DiscountMesh.text = discounttemp.ToString() + "%";
+    //}
     void GetToPlayer()
     {
         Countdown = true;
@@ -138,14 +132,14 @@ public class GameTitle : MonoBehaviour {
     }
     void SetLast()
     {
-        if(gameObject.transform.childCount == 1)
+        if (gameObject.transform.childCount == 1)
         {
             gameObject.tag = "Player";
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             return;
         }
         GameObject temp = gameObject.transform.Find("Title(Clone)").gameObject;
-        while(temp.transform.childCount >1)
+        while (temp.transform.childCount > 1)
         {
             temp.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             temp.tag = "Untagged";
