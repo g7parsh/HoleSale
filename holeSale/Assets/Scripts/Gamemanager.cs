@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -6,20 +7,43 @@ public class GameManager : MonoBehaviour {
     private float MoneyStartTime;
     private float BillStartTime;
     //public GameObject[] Titles;
+    public float amtInwallet;
+
     public GameObject test;
     public string[] Titles;
-	float[] discounts = {.25f,.50f,.75f,.90f};
+    GameObject wallet;
+    Sprite[] walletSprites;
+    Text walletText;
+    Image walletImg;
+
+    float[] discounts = {.25f,.50f,.75f,.90f};
 	
 	// Use this for initialization
 	void Start () {
-		starttime =Time.time;
+        wallet = GameObject.FindGameObjectWithTag("Wallet");
+        walletText = wallet.GetComponentInChildren<Text>();
+        walletImg = wallet.GetComponent<Image>();
+        starttime =Time.time;
         MoneyStartTime = Time.time;
         BillStartTime = Time.time;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(Time.time - starttime > 3f)
+        walletSprites = Resources.LoadAll<Sprite>("2D Assets/Wallets");
+
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+        amtInwallet = (float.Parse(walletText.text.Remove(0, 1)));
+        if (amtInwallet > 0)
+        {
+            walletImg.sprite = walletSprites[0];
+        }
+        else
+        {
+            walletImg.sprite = walletSprites[1];
+        }
+
+        if (Time.time - starttime > 3f)
 		{
 			//generate the game title prefab
             GameObject temp = Instantiate(test);
@@ -58,6 +82,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public float getAmtInWallet() {
+        return amtInwallet;
+    }
     void SetSprite(string name, GameObject go)
     {
         SpriteRenderer render;
