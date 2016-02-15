@@ -4,20 +4,50 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour {
 	public float speed = 50;
     public List<GameObject> CurrentTitles = new List<GameObject>();
+    public Animator Anim;
+    Transform PlayerSideRig;
+    
 	// Use this for initialization
 	void Start () {
-	
+        Anim = GetComponentInChildren<Animator>();
+        PlayerSideRig = GameObject.Find("MascotRig_Side").transform;
 	}
 
     // Update is called once per frame
     void Update () {
-		//keyboard  input to move left and eright
-		Vector3 moveDir = Vector3.zero;
+
+        if (CurrentTitles.Count > 0)
+        {
+            Anim.SetBool("hasTitles", true);
+        }
+        else
+        {
+            Anim.SetBool("hasTitles", false);
+        }
+       
+        //keyboard  input to move left and eright
+        Vector3 moveDir = Vector3.zero;
+        Anim.SetBool("walking", false);
+        
+        if (Input.GetKey(KeyCode.LeftArrow)) {
+            Anim.SetBool("walking", true);
+
+            PlayerSideRig.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            Anim.SetBool("walking", true);
+
+            PlayerSideRig.localScale = new Vector3(1, 1, 1);
+        }
         // checks to make sure character doesn't go off screen
-        if(transform.position.x <288 && transform.position.x > -289)
+        if (transform.position.x <288 && transform.position.x > -289)
         {
             moveDir.x = Input.GetAxis("Horizontal");
             transform.position += moveDir * speed * Time.deltaTime;
+            
+
         }
         else if(transform.position.x >= 288)
         {
