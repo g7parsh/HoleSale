@@ -21,7 +21,7 @@ public class GameTitle : MonoBehaviour {
     {
         DiscountMesh = GetComponentInChildren<TextMesh>();
         AmtInWallet = GameObject.FindGameObjectWithTag("Wallet").GetComponentInChildren<Text>();
-        TimePlayed = GameObject.FindGameObjectWithTag("TimePlayed").GetComponent<Text>();
+        TimePlayed = GameObject.FindGameObjectWithTag("Finish").GetComponent<Text>();
         //render = GetComponent<SpriteRenderer>();
         //if (Name == "Fallout")
         //{
@@ -63,7 +63,7 @@ public class GameTitle : MonoBehaviour {
                     Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
                     body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                     AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) - Price * (1 - Discount)).ToString("#.00");
-                    TimePlayed.text = "\n" +( (float.Parse(TimePlayed.text)) + TimeNeeded);
+                    TimePlayed.text = "" +( (float.Parse(TimePlayed.text)) + TimeNeeded);
                     previoustime = TimeNeeded;
                     GetToPlayer();
                 }
