@@ -1,9 +1,15 @@
 fileFormatVersion: 2
 guid: b0ad51a947cf0bf459cf022707728a85
-timeCreated: 1455070388
-licenseType: Pro
+timeCreated: 1455651795
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Titles_0
+    21300002: Titles_1
+    21300004: Titles_2
+    21300006: Titles_3
+    21300008: Titles_4
+    21300010: Titles_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -49,7 +55,123 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Titles_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 967
+        width: 536
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 230, y: -46}
+        - {x: 234, y: -35}
+        - {x: 240, y: -16}
+        - {x: 243, y: -6}
+        - {x: 247, y: 5}
+        - {x: 255, y: 30}
+        - {x: 259, y: 42}
+        - {x: 261, y: 49}
+        - {x: 265, y: 60}
+        - {x: 268, y: 68}
+        - {x: 268, y: 78}
+        - {x: -217, y: 78}
+        - {x: -222, y: 74}
+        - {x: -226, y: 64}
+        - {x: -231, y: 46}
+        - {x: -238, y: 28}
+        - {x: -242, y: 13}
+        - {x: -247, y: -2}
+        - {x: -258, y: -34}
+        - {x: -266, y: -58}
+        - {x: -268, y: -65}
+        - {x: -268, y: -78}
+        - {x: 218, y: -78}
+        - {x: 221, y: -76}
+        - {x: 224, y: -65}
+        - {x: 228, y: -53}
+    - name: Titles_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 794
+        width: 555
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -277.5, y: 83.5}
+        - {x: -277.5, y: -83.5}
+        - {x: 277.5, y: -83.5}
+        - {x: 277.5, y: 83.5}
+    - name: Titles_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 612
+        width: 550
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -274, y: 81.5}
+        - {x: -275, y: 80.5}
+        - {x: -275, y: -81.5}
+        - {x: 275, y: -81.5}
+        - {x: 275, y: 79.5}
+        - {x: 273, y: 81.5}
+    - name: Titles_3
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 420
+        width: 550
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -275, y: 80}
+        - {x: -275, y: -80}
+        - {x: 275, y: -80}
+        - {x: 275, y: 80}
+    - name: Titles_4
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 235
+        width: 550
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -275, y: 80}
+        - {x: -275, y: -80}
+        - {x: 275, y: -80}
+        - {x: 275, y: 80}
+    - name: Titles_5
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 55
+        width: 544
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -272, y: 79}
+        - {x: -272, y: -78}
+        - {x: -271, y: -79}
+        - {x: 271, y: -79}
+        - {x: 272, y: -78}
+        - {x: 272, y: 79}
     outline: []
   spritePackingTag: 
   userData: 

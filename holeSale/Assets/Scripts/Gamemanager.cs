@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour {
     void SetSprite(string name, GameObject go)
     {
         SpriteRenderer render;
-        Sprite[] icons = Resources.LoadAll<Sprite>("2D Assets/Titles 1");
+        Sprite[] icons = Resources.LoadAll<Sprite>("2D Assets/Titles");
 
         render = go.GetComponent<SpriteRenderer>();
         if (name.ToLower() == "fallout")
@@ -102,6 +102,18 @@ public class GameManager : MonoBehaviour {
         if (name.ToLower() == "octodad")
         {
             render.sprite = icons[2];
+        }
+        if (name.ToLower() == "manager")
+        {
+            render.sprite = icons[3];
+        }
+        if (name.ToLower() == "rocksmith")
+        {
+            render.sprite = icons[4];
+        }
+        if (name.ToLower() == "halflife")
+        {
+            render.sprite = icons[5];
         }
     }
 }
