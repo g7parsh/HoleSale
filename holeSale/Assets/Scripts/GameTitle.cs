@@ -111,8 +111,11 @@ public class GameTitle : MonoBehaviour {
                 PlayerBase.tag = "Player";
                 PlayerBase.GetComponent<Player>().UnfreezeTitles();
                 //take out child
-                GameObject temp = gameObject.transform.Find("Title(Clone)").gameObject;
-                temp.transform.parent = gameObject.transform.parent;
+                if (gameObject.transform.childCount > 1)
+                {
+                    GameObject temp = gameObject.transform.Find("Title(Clone)").gameObject;
+                    temp.transform.parent = gameObject.transform.parent;
+                }
                 Destroy(gameObject);
             }
         }

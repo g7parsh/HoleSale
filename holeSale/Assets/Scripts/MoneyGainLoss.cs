@@ -17,32 +17,23 @@ public class MoneyGainLoss : MonoBehaviour
         GameObject[] dropping = GameObject.FindGameObjectsWithTag("Dropped");
         if (dropping.Length == 0)
         {
-            if (coll.gameObject.tag == "Player" && (coll.gameObject.transform.position.y + 15) < gameObject.transform.position.y)
+            if (coll.gameObject.tag == "Player")
             {
-                //need to check x positin before combining
-                if (coll.gameObject.transform.position.x + 40 > gameObject.transform.position.x && coll.gameObject.transform.position.x - 40 < gameObject.transform.position.x)
+                //collided
+                if (gameObject.name == "Money(Clone)")
                 {
-                    //collided
-                    if (gameObject.name == "Money(Clone)")
-                    {
-                        AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) + Cost);
-                    }
-                    else
-                    {
-                        AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) - Cost);
-                    }
-                    //gameObject.transform.parent = coll.gameObject.transform;
-                    //gameObject.tag = "Player";
-                    //coll.gameObject.tag = "Untagged";
-                    //Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
-                    //body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-                    Destroy(gameObject);
+                    AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) + Cost);
                 }
                 else
                 {
-                    Debug.Log("Failed the x pos check");
-                    Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+                    AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) - Cost);
                 }
+                //gameObject.transform.parent = coll.gameObject.transform;
+                //gameObject.tag = "Player";
+                //coll.gameObject.tag = "Untagged";
+                //Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
+                //body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                Destroy(gameObject);
             }
             else
             {
