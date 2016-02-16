@@ -21,7 +21,7 @@ public class GameTitle : MonoBehaviour {
     {
         DiscountMesh = GetComponentInChildren<TextMesh>();
         AmtInWallet = GameObject.FindGameObjectWithTag("Wallet").GetComponentInChildren<Text>();
-        TimePlayed = GameObject.FindGameObjectWithTag("Finish").GetComponent<Text>();
+       // TimePlayed = GameObject.FindGameObjectWithTag("Finish").GetComponent<Text>();
         //render = GetComponent<SpriteRenderer>();
         //if (Name == "Fallout")
         //{
@@ -63,7 +63,7 @@ public class GameTitle : MonoBehaviour {
                     Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
                     body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                     AmtInWallet.text = "$" + (float.Parse(AmtInWallet.text.Remove(0, 1)) - Price * (1 - Discount)).ToString("#.00");
-                    TimePlayed.text = "" +( (float.Parse(TimePlayed.text)) + TimeNeeded);
+                   // TimePlayed.text = "" +( (float.Parse(TimePlayed.text)) + TimeNeeded);
                     previoustime = TimeNeeded;
                     GetToPlayer();
                 }
@@ -97,7 +97,7 @@ public class GameTitle : MonoBehaviour {
             //check if 1 second has passed
            
             TimeNeeded -= Time.deltaTime;
-            if (TimeNeeded < previoustime - 1)
+         /*   if (TimeNeeded < previoustime - 1)
             {
                 //don't  go into negatives
                 if (float.Parse(TimePlayed.text) > 0)
@@ -105,7 +105,7 @@ public class GameTitle : MonoBehaviour {
                     TimePlayed.text = "" + ((float.Parse(TimePlayed.text)) - 1);
                 }
                 previoustime = TimeNeeded;
-            }
+            }*/
             if (TimeNeeded <= 0)
             {
                 PlayerBase.tag = "Player";

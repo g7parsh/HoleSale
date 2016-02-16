@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour {
             
             MoneyStartTime = Time.time;
         }
-        if (Time.time - BillStartTime > 10f)
+        if (Time.time - BillStartTime > 30f)
         {
             GameObject temp = (GameObject)Instantiate(Resources.Load("Prefabs/Bill"));
             //starting postiont
