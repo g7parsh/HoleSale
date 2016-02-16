@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 	private float starttime;
     private float MoneyStartTime;
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         amtInwallet = (float.Parse(walletText.text.Remove(0, 1)));
         if (amtInwallet > 0)
         {
@@ -40,10 +41,15 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            if (amtInwallet < -500)
+            {
+                SceneManager.LoadScene("Scenes/gameover");
+                Debug.Log("quit");
+            }
             walletImg.sprite = walletSprites[1];
         }
-
-        if (Time.time - starttime > 3f)
+        
+        if (Time.time - starttime > 7f)
 		{
 			//generate the game title prefab
             GameObject temp = Instantiate(test);
@@ -60,7 +66,7 @@ public class GameManager : MonoBehaviour {
 			starttime = Time.time;
 		}
         //different starting time for the Money drops
-        if (Time.time - MoneyStartTime > 20f)
+        if (Time.time - MoneyStartTime > 5f)
         {
             GameObject temp = (GameObject)Instantiate(Resources.Load("Prefabs/Money"));
             //starting postiont
@@ -70,7 +76,7 @@ public class GameManager : MonoBehaviour {
             
             MoneyStartTime = Time.time;
         }
-        if (Time.time - BillStartTime > 10f)
+        if (Time.time - BillStartTime > 15f)
         {
             GameObject temp = (GameObject)Instantiate(Resources.Load("Prefabs/Bill"));
             //starting postiont
@@ -88,7 +94,7 @@ public class GameManager : MonoBehaviour {
     void SetSprite(string name, GameObject go)
     {
         SpriteRenderer render;
-        Sprite[] icons = Resources.LoadAll<Sprite>("2D Assets/Titles 1");
+        Sprite[] icons = Resources.LoadAll<Sprite>("2D Assets/Titles");
 
         render = go.GetComponent<SpriteRenderer>();
         if (name.ToLower() == "fallout")
@@ -102,6 +108,18 @@ public class GameManager : MonoBehaviour {
         if (name.ToLower() == "octodad")
         {
             render.sprite = icons[2];
+        }
+        if (name.ToLower() == "manager")
+        {
+            render.sprite = icons[3];
+        }
+        if (name.ToLower() == "rocksmith")
+        {
+            render.sprite = icons[4];
+        }
+        if (name.ToLower() == "halflife")
+        {
+            render.sprite = icons[5];
         }
     }
 }
