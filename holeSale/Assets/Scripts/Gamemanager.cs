@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
             walletImg.sprite = walletSprites[1];
         }
 
-        if (Time.time - starttime > 3f)
+        if (Time.time - starttime > 7f)
 		{
 			//generate the game title prefab
             GameObject temp = Instantiate(test);
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour {
 			starttime = Time.time;
 		}
         //different starting time for the Money drops
-        if (Time.time - MoneyStartTime > 20f)
+        if (Time.time - MoneyStartTime > 5f)
         {
             GameObject temp = (GameObject)Instantiate(Resources.Load("Prefabs/Money"));
             //starting postiont
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour {
             
             MoneyStartTime = Time.time;
         }
-        if (Time.time - BillStartTime > 30f)
+        if (Time.time - BillStartTime > 15f)
         {
             GameObject temp = (GameObject)Instantiate(Resources.Load("Prefabs/Bill"));
             //starting postiont

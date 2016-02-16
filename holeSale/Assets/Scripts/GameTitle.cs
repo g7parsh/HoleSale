@@ -69,7 +69,7 @@ public class GameTitle : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("Failed the x pos check");
+//                    Debug.Log("Failed the x pos check");
                     Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
                 }
             }
