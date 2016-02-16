@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class MoneyGainLoss : MonoBehaviour
 {
     public Text AmtInWallet;
     public float Cost;
+    private int attempts = 0;
     // Use this for initialization
     void Awake()
     {
@@ -51,7 +53,18 @@ public class MoneyGainLoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (transform.position.y < -170)
+        {
+            if (gameObject.name == "Bill(Clone)")
+            {
+                attempts++;
+            }
+            if(attempts >= 3)
+            {
+                SceneManager.LoadScene("Scenes/gameover");
+            }
+            Destroy(gameObject);
+        }
     }
 }
 

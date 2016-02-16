@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 	private float starttime;
     private float MoneyStartTime;
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         amtInwallet = (float.Parse(walletText.text.Remove(0, 1)));
         if (amtInwallet > 0)
         {
@@ -40,9 +41,14 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            if (amtInwallet < -500)
+            {
+                SceneManager.LoadScene("Scenes/gameover");
+                Debug.Log("quit");
+            }
             walletImg.sprite = walletSprites[1];
         }
-
+        
         if (Time.time - starttime > 7f)
 		{
 			//generate the game title prefab
