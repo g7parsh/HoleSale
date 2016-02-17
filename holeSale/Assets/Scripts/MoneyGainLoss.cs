@@ -60,7 +60,7 @@ public class MoneyGainLoss : MonoBehaviour
             if (gameObject.name == "Bill(Clone)")
             {
                 attempts++;
-                manager.GetComponent<GameManager>().attempts++;
+                manager.GetComponent<Gamemanager>().attempts++;
             }
             
             Destroy(gameObject);
