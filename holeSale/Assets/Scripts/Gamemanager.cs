@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
-public class GameManager : MonoBehaviour {
+public class Gamemanager : MonoBehaviour {
 	private float starttime;
     private float MoneyStartTime;
     private float BillStartTime;
