@@ -13,6 +13,7 @@ public class GameTitle : MonoBehaviour {
     public float Discount;
     public float TimeNeeded;
     public bool Countdown = false;
+    
     private GameObject PlayerBase;
     //private SpriteRenderer render;
     private TextMesh DiscountMesh;
@@ -126,6 +127,19 @@ public class GameTitle : MonoBehaviour {
         //turn it into whole number for output
         float discounttemp = Discount * 100f;
         DiscountMesh.text = discounttemp.ToString() + "%"; 
+    }
+    public void SetPrice()
+    {
+        //randomize the cost of the game
+        float ran = Random.Range(0f, 1f);
+        if (ran < .5)
+        {
+            Price = 30;
+        }
+        else
+        {
+            Price = 60;
+        }
     }
     void GetToPlayer()
     {

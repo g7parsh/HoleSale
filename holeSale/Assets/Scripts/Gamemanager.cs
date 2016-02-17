@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
             SetSprite(Titles[Random.Range(0,Titles.Length)], temp);
             tempObj.Discount = discounts[Random.Range(0, discounts.Length)];
             tempObj.setDiscountTag();
+            //tempObj.SetPrice();
 //			temp.transform.parent = screencanvas.transform;
 
 			//starting postiont
@@ -100,26 +101,52 @@ public class GameManager : MonoBehaviour {
         if (name.ToLower() == "fallout")
         {
             render.sprite = icons[0];
+            go.GetComponent<GameTitle>().Price = 60f;
         }
         if (name.ToLower() == "farcry")
         {
             render.sprite = icons[1];
+            go.GetComponent<GameTitle>().Price = 60f;
         }
         if (name.ToLower() == "octodad")
         {
             render.sprite = icons[2];
+            go.GetComponent<GameTitle>().Price = 30f;
         }
         if (name.ToLower() == "manager")
         {
             render.sprite = icons[3];
+            go.GetComponent<GameTitle>().Price = 50f;
         }
         if (name.ToLower() == "rocksmith")
         {
             render.sprite = icons[4];
+            go.GetComponent<GameTitle>().Price = 60f;
         }
         if (name.ToLower() == "halflife")
         {
             render.sprite = icons[5];
+            go.GetComponent<GameTitle>().Price = 10f;
+        }
+        if (name.ToLower() == "borderlands2")
+        {
+            render.sprite = icons[6];
+            go.GetComponent<GameTitle>().Price = 20f;
+        }
+        if (name.ToLower() == "portal2")
+        {
+            render.sprite = icons[7];
+            go.GetComponent<GameTitle>().Price = 10f;
+        }
+        if (name.ToLower() == "surgeonsimulator")
+        {
+            render.sprite = icons[8];
+            go.GetComponent<GameTitle>().Price = 40f;
+        }
+        if (name.ToLower() == "don'tstarve")
+        {
+            render.sprite = icons[9];
+            go.GetComponent<GameTitle>().Price = 20f;
         }
     }
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b0ad51a947cf0bf459cf022707728a85
-timeCreated: 1455651795
+timeCreated: 1455668379
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,10 @@ TextureImporter:
     21300006: Titles_3
     21300008: Titles_4
     21300010: Titles_5
+    21300012: Titles_6
+    21300014: Titles_7
+    21300016: Titles_8
+    21300018: Titles_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,8 +63,8 @@ TextureImporter:
     - name: Titles_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 967
+        x: 24
+        y: 1626
         width: 536
         height: 156
       alignment: 0
@@ -96,8 +100,8 @@ TextureImporter:
     - name: Titles_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 794
+        x: 13
+        y: 1453
         width: 555
         height: 167
       alignment: 0
@@ -111,8 +115,8 @@ TextureImporter:
     - name: Titles_2
       rect:
         serializedVersion: 2
-        x: 50
-        y: 612
+        x: 22
+        y: 1271
         width: 550
         height: 163
       alignment: 0
@@ -128,8 +132,8 @@ TextureImporter:
     - name: Titles_3
       rect:
         serializedVersion: 2
-        x: 53
-        y: 420
+        x: 25
+        y: 1079
         width: 550
         height: 160
       alignment: 0
@@ -143,8 +147,8 @@ TextureImporter:
     - name: Titles_4
       rect:
         serializedVersion: 2
-        x: 59
-        y: 235
+        x: 31
+        y: 894
         width: 550
         height: 160
       alignment: 0
@@ -158,8 +162,8 @@ TextureImporter:
     - name: Titles_5
       rect:
         serializedVersion: 2
-        x: 62
-        y: 55
+        x: 34
+        y: 714
         width: 544
         height: 158
       alignment: 0
@@ -172,6 +176,67 @@ TextureImporter:
         - {x: 271, y: -79}
         - {x: 272, y: -78}
         - {x: 272, y: 79}
+    - name: Titles_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 542
+        width: 540
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -270, y: 77.5}
+        - {x: -270, y: -77.5}
+        - {x: 270, y: -77.5}
+        - {x: 270, y: 77.5}
+    - name: Titles_7
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 372
+        width: 539
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -269.5, y: 77}
+        - {x: -269.5, y: -77}
+        - {x: 269.5, y: -77}
+        - {x: 269.5, y: 77}
+    - name: Titles_8
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 199
+        width: 544
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -272, y: 78.5}
+        - {x: -272, y: -78.5}
+        - {x: 272, y: -78.5}
+        - {x: 272, y: 76.5}
+        - {x: 270, y: 78.5}
+    - name: Titles_9
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 21
+        width: 550
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -275, y: 80}
+        - {x: -275, y: -80}
+        - {x: 275, y: -80}
+        - {x: 275, y: 80}
     outline: []
   spritePackingTag: 
   userData: 
