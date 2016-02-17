@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     private float BillStartTime;
     //public GameObject[] Titles;
     public float amtInwallet;
-
+    public int attempts = 0;
     public GameObject test;
     public string[] Titles;
     GameObject wallet;
@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviour {
     Image walletImg;
 
     float[] discounts = {.25f,.50f,.75f,.90f};
-	
+	void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 	// Use this for initialization
 	void Start () {
         wallet = GameObject.FindGameObjectWithTag("Wallet");
@@ -34,6 +37,10 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+        if (attempts >= 3)
+        {
+            SceneManager.LoadScene("Scenes/gameover");
+        }
         amtInwallet = (float.Parse(walletText.text.Remove(0, 1)));
         if (amtInwallet > 0)
         {

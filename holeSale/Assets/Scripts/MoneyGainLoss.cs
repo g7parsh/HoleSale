@@ -7,10 +7,12 @@ public class MoneyGainLoss : MonoBehaviour
     public Text AmtInWallet;
     public float Cost;
     private int attempts = 0;
+    public GameObject manager;
     // Use this for initialization
     void Awake()
     {
         AmtInWallet = GameObject.FindGameObjectWithTag("Wallet").GetComponentInChildren<Text>();
+        manager = GameObject.FindGameObjectWithTag("GameManager");
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -58,11 +60,9 @@ public class MoneyGainLoss : MonoBehaviour
             if (gameObject.name == "Bill(Clone)")
             {
                 attempts++;
+                manager.GetComponent<GameManager>().attempts++;
             }
-            if(attempts >= 3)
-            {
-                SceneManager.LoadScene("Scenes/gameover");
-            }
+            
             Destroy(gameObject);
         }
     }
